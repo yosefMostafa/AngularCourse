@@ -1,0 +1,8 @@
+<app-rounded-container>
+<article>
+  <h2>{{name}}</h2>
+  <time>{{time | date:'fullDate'}}</time>
+  <p>{{summary}}</p>
+  <p class="actions"><button (click)="onComplete()">Complete</button></p>
+</article>
+</app-rounded-container>

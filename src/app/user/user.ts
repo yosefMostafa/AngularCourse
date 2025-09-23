@@ -22,7 +22,7 @@ export class UserComponent {
   id = input.required<string>();
   avatar = input.required<string>();
   name = input.required<string>();
-  // @Output() select = new EventEmitter<string>();
+  selected = input.required<boolean>();
 
   select = output<string>();
 

@@ -1,0 +1,20 @@
+@if(isAdding){
+  <app-new-tasks (cancel)="onCancelAddTask()" (create)="onCreate($event)"></app-new-tasks>
+}
+
+<div id="tasks">
+  <header>
+    <h2>{{name}}</h2>
+    <menu>
+      <button (click)="onStartAddTask()">Add Task</button>
+    </menu>
+  </header>
+
+  <ul>
+    @for (task of userTasks; track task.id) {
+    <li>
+      <app-task (complete)="onCompleteTask($event)" [name]="task.name" [id]="task.id" [summary]="task.summary" [time]="task.time" [done]="task.done" [dueDate]="task.dueDate"></app-task>
+    </li>
+    }
+  </ul>
+</div>
