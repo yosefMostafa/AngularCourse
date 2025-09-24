@@ -12,7 +12,8 @@ import { DUMMY_USERS } from '../dummy';
 // const randomNumber = Math.floor(Math.random() * DUMMY_USERS.length);
 @Component({
   selector: 'app-user',
-  imports: [],
+
+  standalone:false,
   templateUrl: './user.html',
   styleUrl: './user.css',
 })
