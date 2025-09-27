@@ -1,3 +1,12 @@
 <app-dashboard-item icon="list.png" title="Support Tickets">
-  <app-newticket></app-newticket>
+  <ul>
+    @for ( ticket of tickets; track ticket.id) {
+    <li>
+      <app-ticket [ticket]="ticket" (close)="onCloseTicket(ticket.id)"></app-ticket>
+    </li>
+    }@empty {
+    <p>No tickets found.</p>
+    }
+  </ul>
+  <app-newticket (add)="onAddTicket($event)"></app-newticket>
 </app-dashboard-item>
