@@ -1,14 +1,23 @@
 <app-dashboard-item icon="status.png" title="Server Status">
-        <div>
-          @if (currentStatus === 'online') {
-            <p>Servers are online</p>
-            <p>All systems are operational.</p>
-          } @else if (currentStatus === 'offline') {
-            <p>Servers are offline</p>
-            <p>Functionality should be restored soon.</p>
-          } @else {
-            <p>Server status is unknown</p>
-            <p>Fetching server status failed.</p>
-          }
-        </div>
-      </app-dashboard-item>
+  <div [class]="{
+    status:true,
+    'status-online': currentStatus === 'online',
+    'status-offline': currentStatus === 'offline',
+    'status-unknown': currentStatus !== 'online' && currentStatus !== 'offline'
+  }" 
+  [style]="{
+    fontSize: '0.9rem',
+  }"
+  >
+    @if (currentStatus === 'online') {
+    <p>Servers are online</p>
+    <p>All systems are operational.</p>
+    } @else if (currentStatus === 'offline') {
+    <p>Servers are offline</p>
+    <p>Functionality should be restored soon.</p>
+    } @else {
+    <p>Server status is unknown</p>
+    <p>Fetching server status failed.</p>
+    }
+  </div>
+</app-dashboard-item>
