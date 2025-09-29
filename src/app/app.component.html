@@ -1,30 +1,14 @@
-<main>
-  <article class="temperatures">
-    <header>
-      <img src="temp-icon.png" alt="Thermometer icon" />
-      <div>
-        <h2>Current Temperatures</h2>
-        <p>{{ currentDate | date: 'MMM dd yyyy' }}</p>
-      </div>
-    </header>
-    <p>New York: {{ currentTemperaturs.newYork | temprature:'F':'C'}}</p>
-    <p>Berlin: {{ currentTemperaturs.berlin | temprature :'C':'F'}}</p>
-    <p>Paris: {{ currentTemperaturs.paris | temprature :'F':'C'}}</p>
-    <p>Chicago: {{ currentTemperaturs.chicago | temprature :'F':'C'}}</p>
-  </article>
+<header>
+  <img src="logo.png" alt="Stylized globe" />
+  <h1>PlacePicker</h1>
+  <p>
+    Create your personal collection of places you would like to visit or you
+    have visited.
+  </p>
+</header>
 
-  <article class="temperatures">
-    <header>
-      <img src="temp-icon.png" alt="Thermometer icon" />
-      <div>
-        <h2>Historic Temperatures</h2>
-        <p>Berlin</p>
-      </div>
-    </header>
-    <ul>
-      @for (temperature of historicTemperatures | sort:'asc'; track temperature) {
-      <li (click)="onReset($index)">{{ temperature | temprature:'C':'F' }}</li>
-      }
-    </ul>
-  </article>
+<main>
+  <app-available-places />
+
+  <app-user-places />
 </main>
